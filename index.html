@@ -56,15 +56,15 @@
                             React. Experiencia en diseño centrado en el usuario.</span>
                     </li>
                     <li>
-                        <span class="titulo">☁️ Soluciones Cloud</span>
+                        <span class="titulo">☁️ Soluciones Cloud AWS</span>
                         <span class="descripcion">Implementación de infraestructura escalable en AWS. Automatización,
-                            despliegue y seguridad de aplicaciones web.</span>
+                            despliegue y seguridad. Para mejorar la eficiencia y la experiencia del usuario.</span>
                     </li>
                     <li>
                         <span class="titulo">🛠️ Backend Profesional</span>
                         <span class="descripcion">Desarrollo de APIs REST seguras con Java y Spring Boot. Gestión de
                             base de
-                            datos, lógica de negocio y autenticación con JWT.</span>
+                            datos, lógica de negocio y autenticación con JWT. Con desarrollo escalable</span>
                     </li>
                 </ul>
             </div>
@@ -199,6 +199,18 @@
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script src="/Assets/js/modal-contacto.js"></script>
     <script src="/Assets/js/nav.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll(".tarjetas li").forEach(card => {
+                    card.addEventListener("click", () => {
+                        card.classList.toggle("expandida");
+                    });
+                });
+            }
+        });
+    </script>
+
 
 </body>
 

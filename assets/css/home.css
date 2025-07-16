@@ -150,6 +150,14 @@
   bottom: 0;
 }
 
+.tarjetas li.expandida .titulo {
+  transform: translateY(-120%);
+}
+
+.tarjetas li.expandida .descripcion {
+  bottom: 0;
+}
+
 .habilidades-proyectos {
   max-width: 180vh;
   margin: 3rem auto;
@@ -289,12 +297,49 @@
   }
 
   .tarjetas {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 2rem auto;
+    max-width: 100%;
     height: auto;
   }
 
-  .tarjetas li:hover .titulo {
-    transform: translateY(-120%);
+  .tarjetas li {
+    width: 90%;
+    max-width: 400px;
+    min-height: auto;
+    position: relative;
+    padding: 2rem 1rem;
+    text-align: left;
+  }
+
+  .tarjetas .titulo {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .tarjetas .descripcion {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    background-color: transparent;
+    color: #ccc;
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    font-size: 0.95rem;
+    opacity: 1;
+    transition: none;
+  }
+
+  .tarjetas li:hover .titulo,
+  .tarjetas li:hover .descripcion {
+    transform: none;
+    bottom: auto;
+    color: #000;
   }
 
   .bloques {

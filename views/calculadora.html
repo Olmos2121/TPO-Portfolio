@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="/assets/css/body.css" />
+    <link rel="stylesheet" href="/assets/css/calculadora.css" />
+    <link rel="stylesheet" href="/assets/css/modal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/index.html"><img src="/Assets/img/logo.png" alt="Logo de Tomás Olmos De Rose" class="logo" /></a>
+        <button class="hamburguesa" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/index.html#sobremi">Sobre mí</a></li>
+            <li><a href="/index.html#proyectos">Proyectos</a></li>
+            <li><a href="/index.html#habilidades">Habilidades</a></li>
+            <li><a onclick="abrirModal()">Contacto</a></li>
+            <li><a href="/TP2-BLOG/index.html">linktree</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="calculadora-container">
+            <div class="calculadora">
+                <div class="visor">
+                    <span class="resultado"></span>
+                    <span class="input"></span>
+                </div>
+                <div class="botones">
+                    <button class="azul">%</button>
+                    <button class="azul">CE</button>
+                    <button class="azul">C</button>
+                    <button class="azul">DEL</button>
+
+                    <button class="azul">1/x</button>
+                    <button class="azul">x²</button>
+                    <button class="azul">√</button>
+                    <button class="azul">÷</button>
+
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button class="azul">x</button>
+
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button class="azul">-</button>
+
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button class="azul">+</button>
+
+                    <button class="azul">+/-</button>
+                    <button>0</button>
+                    <button>.</button>
+                    <button class="azul">=</button>
+                </div>
+            </div>
+            <div class="descripcion-calculadora">
+                <h2>🧮 Calculadora Avanzada</h2>
+                <p>
+                    Esta calculadora fue desarrollada usando HTML, CSS y JavaScript. Permite realizar operaciones
+                    básicas y funciones más avanzadas como raíz cuadrada, porcentaje, potencia al cuadrado, inverso y
+                    cambio de signo.
+                </p>
+                <ul>
+                    <li>✔ Suma, resta, multiplicación y división</li>
+                    <li>✔ Raíz cuadrada y porcentaje</li>
+                    <li>✔ Inverso (1/x) y cuadrado (x²)</li>
+                    <li>✔ Borrado individual y total</li>
+                    <li>✔ Entrada dinámica con historial parcial</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social">
+            <a href="https://www.linkedin.com/in/tomas-olmos-de-rose/" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Olmos2121" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 Tomás Olmos De Rose. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const botones = document.querySelectorAll('button');
+            const inputSpan = document.querySelector('.input');
+            const resultado = document.querySelector('.resultado');
+
+            let inputActual = '';
+            let operador = null;
+            let a = null;
+            let b = null;
+            let esperandoNuevoValor = false;
+
+            const operaciones = {
+                '+': (x, y) => x + y,
+                '-': (x, y) => x - y,
+                'x': (x, y) => x * y,
+                '÷': (x, y) => y !== 0 ? x / y : 'Error',
+                '%': (x) => x / 100,
+                '√': (x) => Math.sqrt(x),
+                'x²': (x) => x * x,
+                '1/x': (x) => x !== 0 ? 1 / x : 'Error',
+                '+/-': (x) => -x
+            };
+
+            function actualizarVisor() {
+                inputSpan.textContent = `${a !== null && operador ? `${a} ${operador}` : ''}`;
+                resultado.textContent = inputActual || '0';
+            }
+
+            botones.forEach(boton => {
+                boton.addEventListener('click', () => {
+                    const valor = boton.textContent;
+
+                    if (!isNaN(valor)) {
+                        if (esperandoNuevoValor) {
+                            inputActual = valor;
+                            esperandoNuevoValor = false;
+                        } else {
+                            inputActual += valor;
+                        }
+                        actualizarVisor();
+                    } else if (valor === '.') {
+                        if (!inputActual.includes('.')) {
+                            inputActual = inputActual === '' ? '0.' : inputActual + '.';
+                            actualizarVisor();
+                        }
+                    } else if (valor === 'CE' || valor === 'C') {
+                        inputActual = '';
+                        if (valor === 'C') {
+                            a = null;
+                            operador = null;
+                            resultado.textContent = '0';
+                        }
+                        actualizarVisor();
+                    } else if (valor === 'DEL') {
+                        inputActual = inputActual.slice(0, -1);
+                        actualizarVisor();
+                    } else if (valor === '+/-') {
+                        if (inputActual !== '') {
+                            let num = parseFloat(inputActual);
+                            let res = operaciones['+/-'](num);
+                            inputActual = res.toString();
+                            actualizarVisor();
+                        }
+                    } else if (['x²', '1/x', '√', '%'].includes(valor)) {
+                        if (inputActual !== '') {
+                            let num = parseFloat(inputActual);
+
+                            if (a !== null && operador) {
+                                const op = operaciones[operador];
+                                const intermedio = op(a, num);
+
+                                num = parseFloat(intermedio);
+                                a = null;
+                                operador = null;
+                            }
+
+                            let res = operaciones[valor](num);
+                            inputActual = res.toString();
+                            esperandoNuevoValor = true;
+                            inputSpan.textContent = '';
+                            resultado.textContent = inputActual;
+                        }
+                    } else if (['+', '-', 'x', '÷'].includes(valor)) {
+                        if (inputActual === '' && resultado.textContent !== '') {
+                            inputActual = resultado.textContent;
+                        }
+
+                        if (a !== null && operador && inputActual !== '') {
+                            b = parseFloat(inputActual);
+                            let res = operaciones[operador](a, b);
+                            inputActual = res.toString();
+                            resultado.textContent = inputActual;
+                        }
+
+                        a = parseFloat(inputActual);
+                        operador = valor;
+                        esperandoNuevoValor = true;
+                        actualizarVisor();
+                    } else if (valor === '=') {
+                        if (a !== null && operador && inputActual !== '') {
+                            b = parseFloat(inputActual);
+                            let res = operaciones[operador](a, b);
+                            inputActual = res.toString();
+                            resultado.textContent = inputActual;
+                            a = null;
+                            operador = null;
+                            esperandoNuevoValor = true;
+                            inputSpan.textContent = '';
+                        }
+                    }
+                });
+            });
+
+            actualizarVisor();
+        });
+    </script>
+
+    <div id="modal-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="/Assets/js/modal-contacto.js"></script>
+    <script src="/Assets/js/nav.js"></script>
+
+</body>
+
+</html>

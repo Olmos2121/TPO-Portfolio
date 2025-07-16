@@ -1,0 +1,39 @@
+.tabla-idolos {
+  max-width: 90vh;
+  margin: 1.5em auto;
+  padding: 2em;
+  background-color: #003290;
+  border-radius: 1.5em;
+  color: #ebc657;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.tabla-idolos h2 {
+  text-align: center;
+  margin-bottom: 1em;
+  text-shadow: 1px 1px 2px black;
+}
+
+.tabla-idolos table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-idolos th,
+.tabla-idolos td {
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid #ebc65755;
+}
+
+.tabla-idolos th {
+  background-color: #02226c;
+  color: #ebc657;
+}
+
+.img-idolo {
+  width: 80px;
+  height: auto;
+  border-radius: 0.5em;
+  border: 2px solid #ebc657;
+}

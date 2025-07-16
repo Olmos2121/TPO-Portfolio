@@ -1,0 +1,31 @@
+.playlist-container {
+  max-width: 90vh;
+  margin: 1.5em auto;
+  padding: 2em;
+  background: #003290;
+  border-radius: 1.5em;
+  color: #ebc657;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.playlist-container h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+  text-shadow: 2px 2px 2px black;
+}
+
+.playlist-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 2em;
+}
+
+.cancion {
+  padding: 0.5em;
+  border-radius: 1em;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+}

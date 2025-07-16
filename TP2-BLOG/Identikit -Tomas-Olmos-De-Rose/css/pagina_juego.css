@@ -1,0 +1,67 @@
+.selector-niveles {
+  max-width: 75vh;
+  margin: 1.5em auto;
+  background: #003290;
+  border-radius: 1.5em;
+  padding: 2em;
+  box-shadow: 0 0 10px #000;
+}
+
+.selector-niveles h1 {
+  color: #ebc657;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  text-shadow: 2px 2px 2px black;
+}
+
+.selector-niveles h3 {
+  color: #ebc657;
+  margin-bottom: 2em;
+  font-size: 1.1em;
+  line-height: 1.6em;
+}
+
+.grupo-niveles {
+  margin-bottom: 2em;
+}
+
+.titulo-dificultad {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  color: #ebc657;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.titulo-dificultad.facil {
+  color: #76ff03;
+}
+
+.titulo-dificultad.intermedio {
+  color: #ffea00;
+}
+
+.titulo-dificultad.dificil {
+  color: #ff1744;
+}
+
+.niveles {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+.btn.nivel {
+  background: #02226c;
+  color: white;
+  padding: 0.8em 1.5em;
+  border-radius: 1em;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.btn.nivel:hover {
+  background: #0050c0;
+  transform: scale(1.05);
+}

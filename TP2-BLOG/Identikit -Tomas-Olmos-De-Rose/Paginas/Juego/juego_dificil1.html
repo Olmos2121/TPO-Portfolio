@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/Juego/Juego.css">
+    <link rel="stylesheet" href="../../css/Juego/Popup.css" />
+    <link rel="stylesheet" href="../../css/index.css" />
+</head>
+
+<input type="checkbox" id="popup-ganaste" hidden />
+<input type="checkbox" id="popup-perdiste" hidden />
+
+<div class="popup_ganado">
+    <div class="contenido">
+        <h2>🎉 ¡Ganaste! 🎉</h2>
+        <p>¡Adivinaste al jugador correctamente!</p>
+        <a href="../pagina_juego.html" class="boton-volver">Volver al inicio</a>
+    </div>
+</div>
+
+<div class="popup_perdido">
+    <div class="contenido">
+        <h2>❌ ¡Perdiste! ❌</h2>
+        <p>La respuesta no es correcta.</p>
+        <a href="../pagina_juego.html" class="boton-volver">Volver al inicio</a>
+    </div>
+</div>
+
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../pagina_juego.html">Adivina el jugador</a></li>
+                <li><a href="../playlist.html">Playlist</a></li>
+                <li><a href="../maximos_idolos.html">Máximos Ídolos</a></li>
+                <li><a href="../../../index.html">linktree</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="nivel">
+        <h2>Nivel 1 - Dificultad: Difícil</h2>
+
+        <input type="radio" name="fase" id="fase1" checked />
+        <input type="radio" name="fase" id="fase2" />
+        <input type="radio" name="fase" id="fase3" />
+
+        <div class="fase fase1">
+            <h3>Fase 1</h3>
+            <img src="../../Imagenes/juego/zeballos silueta.jpg" alt="Silueta del jugador" class="jugador-img-blur" />
+            <p>¿Quién es este jugador?</p>
+            <div class="opciones">
+                <label for="popup-perdiste">Langoni</label>
+                <label for="popup-perdiste">Retegui</label>
+                <label for="popup-ganaste">Zeballos</label>
+                <label for="popup-perdiste">Pavón</label>
+            </div>
+            <label for="fase2" class="btn-siguiente">Siguiente pista</label>
+        </div>
+
+        <div class="fase fase2">
+            <h3>Fase 2</h3>
+            <img src="../../Imagenes/juego/zeballos color.jpg" alt="Jugador borroso o recortado" class="jugador-img-blur2" />
+            <p>Pista: Joven promesa de las inferiores de Boca.</p>
+            <div class="opciones">
+                <label for="popup-perdiste">Langoni</label>
+                <label for="popup-perdiste">Retegui</label>
+                <label for="popup-ganaste">Zeballos</label>
+                <label for="popup-perdiste">Pavón</label>
+            </div>
+            <label for="fase3" class="btn-siguiente">Siguiente pista</label>
+        </div>
+
+        <div class="fase fase3">
+            <h3>Fase 3</h3>
+            <img src="../../Imagenes/juego/zeballos.jpg" alt="Imagen clara del jugador" class="jugador-img" />
+            <p>Pista: Lo apodan "el Changuito"</p>
+            <div class="opciones">
+                <label for="popup-perdiste">Langoni</label>
+                <label for="popup-perdiste">Retegui</label>
+                <label for="popup-ganaste">Zeballos</label>
+                <label for="popup-perdiste">Pavón</label>
+            </div>
+        </div>
+    </section>
+
+
+</body>
+
+</html>

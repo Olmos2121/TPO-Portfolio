@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piano</title>
+    <link rel="stylesheet" href="/assets/css/body.css" />
+    <link rel="stylesheet" href="/assets/css/piano.css" />
+    <link rel="stylesheet" href="/assets/css/modal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/index.html"><img src="/Assets/img/logo.png" alt="Logo de Tomás Olmos De Rose" class="logo" /></a>
+        <button class="hamburguesa" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/index.html#sobremi">Sobre mí</a></li>
+            <li><a href="/index.html#proyectos">Proyectos</a></li>
+            <li><a href="/index.html#habilidades">Habilidades</a></li>
+            <li><a onclick="abrirModal()">Contacto</a></li>
+            <li><a href="/TP2-BLOG/index.html">linktree</a></li>
+        </ul>
+    </nav>
+
+    <section class="piano-container">
+        <div class="piano-box">
+            <div class="piano">
+                <button class="white" onclick="playNote('C')">Do</button>
+                <button class="white" onclick="playNote('D')">Re</button>
+                <button class="white" onclick="playNote('E')">Mi</button>
+                <button class="white" onclick="playNote('F')">Fa</button>
+                <button class="white" onclick="playNote('G')">Sol</button>
+                <button class="white" onclick="playNote('A')">La</button>
+                <button class="white" onclick="playNote('B')">Si</button>
+
+                <div class="black-keys">
+                    <button class="black" style="left: 37px;" onclick="playNote('Cs')">Do#<br>re♭</button>
+                    <button class="black" style="left: 89px;" onclick="playNote('Ds')">Re#<br>mi♭</button>
+                    <button class="black" style="left: 193px;" onclick="playNote('Fs')">Fa#<br>sol♭</button>
+                    <button class="black" style="left: 245px;" onclick="playNote('Gs')">Sol#<br>la♭</button>
+                    <button class="black" style="left: 297px;" onclick="playNote('As')">La#<br>si♭</button>
+                </div>
+            </div>
+            <div class="piano-desc">
+                <h2>Piano Interactivo</h2>
+                <p>Este piano virtual simula las notas musicales básicas. Se pueden tocar con el mouse o tocar en
+                    pantalla. Las teclas blancas representan notas naturales (Do a Si) y las negras son sostenidos.
+                    Ideal para practicar, divertirse o crear melodías simples desde tu navegador.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social">
+            <a href="https://www.linkedin.com/in/tomas-olmos-de-rose/" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Olmos2121" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 Tomás Olmos De Rose. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function playNote(note) {
+            const audio = new Audio(`/Assets/sounds/${note}.mp3`);
+            audio.play();
+        }
+    </script>
+
+    <div id="modal-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="/Assets/js/modal-contacto.js"></script>
+    <script src="/Assets/js/nav.js"></script>
+
+</body>
+
+</html>

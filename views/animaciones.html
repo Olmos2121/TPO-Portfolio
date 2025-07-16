@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animaciones</title>
+    <link rel="stylesheet" href="/assets/css/body.css" />
+    <link rel="stylesheet" href="/assets/css/animaciones.css" />
+    <link rel="stylesheet" href="/assets/css/modal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="/index.html"><img src="/Assets/img/logo.png" alt="Logo de Tomás Olmos De Rose" class="logo" /></a>
+        <button class="hamburguesa" onclick="toggleMenu()">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/index.html#sobremi">Sobre mí</a></li>
+            <li><a href="/index.html#proyectos">Proyectos</a></li>
+            <li><a href="/index.html#habilidades">Habilidades</a></li>
+            <li><a onclick="abrirModal()">Contacto</a></li>
+            <li><a href="/TP2-BLOG/index.html">linktree</a></li>
+        </ul>
+    </nav>
+
+    <main class="animaciones">
+        <h1>🎞️ Galería de Animaciones CSS & JS</h1>
+        <div class="grid-animaciones">
+
+            <div class="card">
+                <h2>Rebote</h2>
+                <div class="anim rebote"></div>
+                <p>Una caja rebota indefinidamente usando <code>@keyframes</code>.</p>
+            </div>
+
+            <div class="card">
+                <h2>Rotación Infinita</h2>
+                <div class="anim rotar"></div>
+                <p>Elemento girando de forma continua con transformaciones.</p>
+            </div>
+
+            <div class="card">
+                <h2>Hover Zoom</h2>
+                <div class="anim zoom"></div>
+                <p>Zoom al pasar el mouse, usando transiciones suaves.</p>
+            </div>
+
+            <div class="card">
+                <h2>Movimiento Horizontal</h2>
+                <div class="anim mover"></div>
+                <p>Animación que se mueve de izquierda a derecha.</p>
+            </div>
+
+            <div class="card">
+                <h2>Cambio de Color</h2>
+                <div class="anim color"></div>
+                <p>Cambia gradualmente entre colores usando <code>@keyframes</code>.</p>
+            </div>
+
+            <div class="card">
+                <h2>Explosión al Clic</h2>
+                <div class="anim explotar" onclick="explotar(this)"></div>
+                <p>Animación con JS que simula una explosión al hacer clic.</p>
+            </div>
+
+            <div class="card">
+                <h2>Desvanecer</h2>
+                <div class="anim fade"></div>
+                <p>Animación de aparición suave usando opacidad.</p>
+            </div>
+
+            <div class="card">
+                <h2>Escala Pulsante</h2>
+                <div class="anim pulse"></div>
+                <p>Escala rítmica como un pulso continuo.</p>
+            </div>
+
+            <div class="card">
+                <h2>Giro en Eje Y</h2>
+                <div class="anim giroY"></div>
+                <p>Rotación 3D sobre el eje Y simulando giro de carta.</p>
+            </div>
+
+            <div class="card">
+                <h2>Vibración</h2>
+                <div class="anim shake"></div>
+                <p>Temblor breve como si vibrara un botón.</p>
+            </div>
+
+            <div class="card">
+                <h2>Caída Libre</h2>
+                <div class="anim drop"></div>
+                <p>Simula una caída con rebote desde arriba.</p>
+            </div>
+
+            <div class="card">
+                <h2>Luz Intermitente</h2>
+                <div class="anim flash"></div>
+                <p>Parpadeo rápido como efecto de luz o advertencia.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="social">
+            <a href="https://www.linkedin.com/in/tomas-olmos-de-rose/" target="_blank"><i
+                    class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Olmos2121" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        <p>&copy; 2025 Tomás Olmos De Rose. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="modal-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="/Assets/js/modal-contacto.js"></script>
+    <script src="/Assets/js/nav.js"></script>
+    <script>
+        function explotar(el) {
+            el.classList.add('activo');
+            setTimeout(() => el.classList.remove('activo'), 600);
+        }
+    </script>
+
+</body>
+
+</html>
